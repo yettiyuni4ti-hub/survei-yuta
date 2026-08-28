@@ -15,79 +15,168 @@
 <title>Survei Karir – Yuta Academy × LPIA</title>
 <style>
 :root{
-  --bg:#0d0d1a;--card:#161628;--card2:#1e1e35;--border:#2e2e55;
-  --a1:#a855f7;--a2:#06b6d4;--a3:#f472b6;--a4:#facc15;--green:#22c55e;
-  --text:#f1f5f9;--muted:#94a3b8;
-  --grad:linear-gradient(135deg,#a855f7,#06b6d4);
-  color-scheme:light dark;
+  --bg:#f0f4ff;
+  --white:#ffffff;
+  --card:#ffffff;
+  --red:#e63232;
+  --red2:#ff4f4f;
+  --dark:#1a1a2e;
+  --dark2:#2d2d44;
+  --purple:#7c3aed;
+  --blue:#2563eb;
+  --cyan:#0891b2;
+  --orange:#f97316;
+  --yellow:#f59e0b;
+  --green:#16a34a;
+  --muted:#64748b;
+  --border:#e2e8f0;
+  --grad:linear-gradient(135deg,#e63232,#ff6b35);
+  --grad2:linear-gradient(135deg,#7c3aed,#2563eb);
+  color-scheme:light;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
-body::before{content:'';position:fixed;width:600px;height:600px;background:radial-gradient(circle,rgba(168,85,247,.15),transparent 70%);top:-100px;left:-100px;pointer-events:none;z-index:0;}
-body::after{content:'';position:fixed;width:500px;height:500px;background:radial-gradient(circle,rgba(6,182,212,.12),transparent 70%);bottom:-100px;right:-100px;pointer-events:none;z-index:0;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--dark);min-height:100vh;}
+
+/* BG DECORATION */
+body::before{content:'';position:fixed;width:500px;height:500px;background:radial-gradient(circle,rgba(230,50,50,.08),transparent 70%);top:-150px;right:-100px;pointer-events:none;z-index:0;}
+body::after{content:'';position:fixed;width:400px;height:400px;background:radial-gradient(circle,rgba(124,58,237,.07),transparent 70%);bottom:-100px;left:-100px;pointer-events:none;z-index:0;}
 
 /* ── HEADER ── */
-header{position:relative;z-index:10;padding:14px 20px;background:rgba(13,13,26,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;}
-.logo-dot{width:34px;height:34px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.95rem;color:#fff;box-shadow:0 0 14px rgba(168,85,247,.5);flex-shrink:0;}
-.logo-name{font-size:1rem;font-weight:800;}
-.logo-name span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.logo-sub{font-size:.65rem;color:var(--muted);}
-.hbadge{margin-left:auto;background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.35);color:#c084fc;font-size:.65rem;font-weight:700;padding:3px 10px;border-radius:50px;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap;}
+header{
+  position:relative;z-index:10;
+  background:var(--dark);
+  padding:0;
+  box-shadow:0 2px 20px rgba(0,0,0,.2);
+}
+.header-inner{
+  max-width:640px;margin:0 auto;
+  padding:14px 20px;
+  display:flex;align-items:center;gap:14px;
+}
 
-/* ── PROGRESS BAR (fitur #4) ── */
-.pbar-wrap{position:relative;z-index:10;height:4px;background:var(--border);}
-.pbar-fill{height:4px;background:var(--grad);transition:width .5s cubic-bezier(.4,0,.2,1);width:0%;box-shadow:0 0 10px rgba(168,85,247,.7);}
-.pbar-label{text-align:center;font-size:.68rem;color:var(--muted);padding:6px 0 2px;position:relative;z-index:10;}
+/* YUTA LOGO SVG */
+.yuta-logo{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.yuta-logo svg{width:48px;height:48px;}
+.logo-texts{}
+.logo-main{
+  font-size:1.25rem;font-weight:900;color:#fff;
+  letter-spacing:-.5px;line-height:1.1;
+}
+.logo-main span{color:var(--red);}
+.logo-academy{
+  font-size:.55rem;font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;color:#aaa;
+}
+.logo-divider{width:1px;height:36px;background:rgba(255,255,255,.15);margin:0 4px;}
+.logo-partner{font-size:.65rem;color:#aaa;line-height:1.5;}
+.logo-partner strong{color:#fff;font-size:.72rem;}
+
+.hbadge{
+  margin-left:auto;
+  background:linear-gradient(135deg,var(--red),#ff6b35);
+  color:#fff;font-size:.65rem;font-weight:700;
+  padding:5px 12px;border-radius:50px;
+  letter-spacing:.5px;text-transform:uppercase;
+  white-space:nowrap;
+  box-shadow:0 2px 10px rgba(230,50,50,.4);
+}
+
+/* ── PROGRESS BAR ── */
+.pbar-wrap{height:5px;background:#e2e8f0;position:relative;z-index:10;}
+.pbar-fill{
+  height:5px;background:var(--grad);
+  transition:width .5s cubic-bezier(.4,0,.2,1);width:0%;
+  box-shadow:0 0 8px rgba(230,50,50,.5);
+}
+.pbar-info{
+  max-width:640px;margin:0 auto;
+  padding:8px 20px 4px;
+  display:flex;justify-content:space-between;
+  font-size:.7rem;color:var(--muted);
+  position:relative;z-index:10;
+}
 
 /* ── DOTS ── */
-.dots{display:flex;align-items:center;justify-content:center;gap:7px;padding:8px 16px 14px;position:relative;z-index:10;}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--border);transition:all .3s;}
-.dot.active{background:var(--grad);width:22px;border-radius:4px;box-shadow:0 0 8px rgba(168,85,247,.6);}
-.dot.done{background:rgba(168,85,247,.5);}
+.dots{display:flex;align-items:center;justify-content:center;gap:7px;padding:6px 16px 14px;position:relative;z-index:10;}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:all .3s;}
+.dot.active{background:var(--red);width:24px;border-radius:4px;box-shadow:0 0 8px rgba(230,50,50,.5);}
+.dot.done{background:rgba(230,50,50,.4);}
 
-/* ── CARD ── */
+/* ── CONTAINER ── */
 .container{max-width:640px;margin:0 auto;padding:0 14px 80px;position:relative;z-index:5;}
-.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:26px;box-shadow:0 8px 40px rgba(0,0,0,.45);position:relative;overflow:hidden;}
-.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad);}
+.card{
+  background:var(--white);
+  border-radius:20px;
+  padding:28px;
+  box-shadow:0 4px 30px rgba(0,0,0,.08);
+  border:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
 
 /* ── STEPS ── */
 .step{display:none;}
 .step.active{display:block;animation:fadeUp .35s ease;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-.stag{display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--a1);background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.3);padding:3px 10px;border-radius:50px;margin-bottom:10px;}
-h2{font-size:1.25rem;font-weight:800;line-height:1.35;margin-bottom:5px;}
-.sub{font-size:.83rem;color:var(--muted);margin-bottom:22px;line-height:1.55;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+.stag{
+  display:inline-block;font-size:.65rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:1.5px;
+  color:var(--red);background:rgba(230,50,50,.08);
+  border:1px solid rgba(230,50,50,.2);
+  padding:3px 10px;border-radius:50px;margin-bottom:10px;
+}
+h2{font-size:1.3rem;font-weight:800;line-height:1.35;margin-bottom:5px;color:var(--dark);}
+.sub{font-size:.84rem;color:var(--muted);margin-bottom:22px;line-height:1.55;}
 
 /* ── INPUTS ── */
 .fg{margin-bottom:18px;}
-.fl{display:block;font-size:.8rem;font-weight:600;color:var(--muted);margin-bottom:7px;letter-spacing:.3px;}
-.req{color:var(--a3);}
-input[type=text],select,textarea{width:100%;padding:11px 14px;background:var(--card2);border:1.5px solid var(--border);border-radius:11px;font-size:.88rem;color:var(--text);font-family:inherit;outline:none;transition:all .2s;}
-input:focus,select:focus,textarea:focus{border-color:var(--a1);box-shadow:0 0 0 3px rgba(168,85,247,.15);background:#1a1a2e;}
-select option{background:#1e1e35;color:#f1f5f9;}
+.fl{display:block;font-size:.8rem;font-weight:600;color:var(--dark2);margin-bottom:7px;}
+.req{color:var(--red);}
+input[type=text],select,textarea{
+  width:100%;padding:11px 14px;
+  background:#f8fafc;border:1.5px solid var(--border);
+  border-radius:11px;font-size:.88rem;color:var(--dark);
+  font-family:inherit;outline:none;transition:all .2s;
+}
+input:focus,select:focus,textarea:focus{border-color:var(--red);background:#fff;box-shadow:0 0 0 3px rgba(230,50,50,.1);}
+select option{color:var(--dark);}
 
 /* ── RADIO / CHECK ── */
 .rg,.cg{display:flex;flex-direction:column;gap:8px;}
-.ro,.co{display:flex;align-items:flex-start;gap:11px;padding:11px 14px;background:var(--card2);border:1.5px solid var(--border);border-radius:11px;cursor:pointer;transition:all .2s;font-size:.86rem;line-height:1.4;}
-.ro:hover,.co:hover{border-color:var(--a1);background:#1a1a30;}
-.ro.sel{border-color:var(--a1);background:rgba(168,85,247,.1);color:#c084fc;font-weight:600;}
-.co.sel{border-color:var(--a2);background:rgba(6,182,212,.08);color:#67e8f9;font-weight:600;}
-.cr{width:17px;height:17px;min-width:17px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;margin-top:1px;transition:all .2s;}
-.ro.sel .cr{border-color:var(--a1);background:var(--a1);box-shadow:0 0 8px rgba(168,85,247,.5);}
+.ro,.co{
+  display:flex;align-items:flex-start;gap:11px;
+  padding:11px 14px;
+  background:#f8fafc;border:1.5px solid var(--border);
+  border-radius:11px;cursor:pointer;transition:all .2s;
+  font-size:.86rem;line-height:1.4;color:var(--dark);
+}
+.ro:hover,.co:hover{border-color:var(--red);background:#fff5f5;}
+.ro.sel{border-color:var(--red);background:#fff0f0;font-weight:600;color:var(--red);}
+.co.sel{border-color:var(--purple);background:#f5f3ff;font-weight:600;color:var(--purple);}
+
+.cr{width:17px;height:17px;min-width:17px;border-radius:50%;border:2px solid #cbd5e1;display:flex;align-items:center;justify-content:center;margin-top:1px;transition:all .2s;flex-shrink:0;}
+.ro.sel .cr{border-color:var(--red);background:var(--red);box-shadow:0 0 6px rgba(230,50,50,.4);}
 .cr::after{content:'';width:6px;height:6px;background:#fff;border-radius:50%;display:none;}
 .ro.sel .cr::after{display:block;}
-.cc{width:17px;height:17px;min-width:17px;border-radius:5px;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;margin-top:1px;font-size:10px;color:transparent;transition:all .2s;}
-.co.sel .cc{border-color:var(--a2);background:var(--a2);color:#fff;box-shadow:0 0 8px rgba(6,182,212,.45);}
+
+.cc{width:17px;height:17px;min-width:17px;border-radius:5px;border:2px solid #cbd5e1;display:flex;align-items:center;justify-content:center;margin-top:1px;font-size:11px;color:transparent;transition:all .2s;flex-shrink:0;}
+.co.sel .cc{border-color:var(--purple);background:var(--purple);color:#fff;box-shadow:0 0 6px rgba(124,58,237,.35);}
 
 /* ── SALARY BADGE ── */
-.sal-badge{display:none;margin-top:10px;padding:14px 16px;background:linear-gradient(135deg,rgba(250,204,21,.07),rgba(34,197,94,.07));border:1.5px solid rgba(250,204,21,.28);border-radius:12px;}
+.sal-badge{
+  display:none;margin-top:10px;
+  padding:14px 16px;
+  background:linear-gradient(135deg,#fff7ed,#f0fdf4);
+  border:1.5px solid #fed7aa;border-radius:12px;
+}
 .sal-badge.show{display:block;animation:fadeUp .3s ease;}
 .sal-lbl{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:3px;}
-.sal-val{font-size:1.35rem;font-weight:900;background:linear-gradient(90deg,#facc15,#22c55e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.sal-val{font-size:1.35rem;font-weight:900;background:linear-gradient(90deg,var(--orange),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .sal-info{font-size:.72rem;color:var(--muted);margin-top:3px;}
 
-/* ── COUNTRY SALARY PILL ── */
-.cpill{margin-left:auto;font-size:.72rem;font-weight:700;color:var(--a4);background:rgba(250,204,21,.08);border:1px solid rgba(250,204,21,.2);padding:2px 9px;border-radius:50px;white-space:nowrap;flex-shrink:0;}
+/* ── COUNTRY PILL ── */
+.cpill{margin-left:auto;font-size:.7rem;font-weight:700;color:var(--orange);background:#fff7ed;border:1px solid #fed7aa;padding:2px 9px;border-radius:50px;white-space:nowrap;flex-shrink:0;}
 
 /* ── GRID 2 ── */
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
@@ -95,77 +184,112 @@ select option{background:#1e1e35;color:#f1f5f9;}
 
 /* ── SCALE ── */
 .scale-row{display:flex;gap:6px;margin-top:6px;}
-.sb{flex:1;padding:9px 4px;background:var(--card2);border:1.5px solid var(--border);border-radius:9px;text-align:center;font-size:.85rem;font-weight:700;cursor:pointer;transition:all .2s;color:var(--muted);}
-.sb:hover{border-color:var(--a1);color:var(--text);}
-.sb.sel{background:var(--a1);border-color:var(--a1);color:#fff;box-shadow:0 0 10px rgba(168,85,247,.4);}
+.sb{flex:1;padding:9px 4px;background:#f8fafc;border:1.5px solid var(--border);border-radius:9px;text-align:center;font-size:.85rem;font-weight:700;cursor:pointer;transition:all .2s;color:var(--muted);}
+.sb:hover{border-color:var(--red);color:var(--red);}
+.sb.sel{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 2px 8px rgba(230,50,50,.3);}
 .sl-lbl{display:flex;justify-content:space-between;font-size:.68rem;color:var(--muted);margin-top:3px;}
 
-/* ── ERROR (fitur #1 validasi) ── */
-.err{color:#f87171;font-size:.75rem;margin-top:5px;display:none;animation:fadeUp .2s ease;}
+/* ── ERROR ── */
+.err{color:var(--red);font-size:.75rem;margin-top:5px;display:none;}
 
 /* ── BUTTONS ── */
 .btn-row{display:flex;gap:10px;margin-top:24px;}
-.btn{padding:12px 22px;border-radius:50px;font-size:.88rem;font-weight:700;cursor:pointer;border:none;font-family:inherit;transition:all .25s;}
-.btn-back{background:var(--card2);color:var(--muted);border:1.5px solid var(--border);}
-.btn-back:hover{color:var(--text);border-color:var(--muted);}
-.btn-next{flex:1;background:var(--grad);color:#fff;box-shadow:0 4px 18px rgba(168,85,247,.35);position:relative;overflow:hidden;}
-.btn-next::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 40%,rgba(255,255,255,.12));}
-.btn-next:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(168,85,247,.5);}
+.btn{padding:13px 22px;border-radius:50px;font-size:.9rem;font-weight:700;cursor:pointer;border:none;font-family:inherit;transition:all .25s;}
+.btn-back{background:#f1f5f9;color:var(--muted);border:1.5px solid var(--border);}
+.btn-back:hover{color:var(--dark);border-color:#94a3b8;}
+.btn-next{flex:1;background:var(--grad);color:#fff;box-shadow:0 4px 16px rgba(230,50,50,.3);}
+.btn-next:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(230,50,50,.4);}
 .btn-next:active{transform:translateY(0);}
 
 /* ── DIVIDER ── */
 .div{height:1px;background:var(--border);margin:18px 0;}
 
 /* ── INTRO BULLETS ── */
-.ib{background:var(--card2);border:1px solid var(--border);border-radius:13px;padding:14px 18px;margin:14px 0;font-size:.83rem;color:var(--muted);line-height:2.1;}
-.ib span{color:var(--text);}
+.ib{background:#f8fafc;border:1px solid var(--border);border-radius:13px;padding:14px 18px;margin:14px 0;font-size:.84rem;color:var(--muted);line-height:2.1;}
+.ib span{color:var(--dark);font-weight:500;}
 
-/* ── RESULT (fitur #2 profil siswa) ── */
-.res-icon{width:72px;height:72px;margin:0 auto 14px;background:var(--grad);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 0 36px rgba(168,85,247,.4);}
-.res-badge{display:inline-block;background:linear-gradient(135deg,rgba(168,85,247,.15),rgba(6,182,212,.15));border:1.5px solid rgba(168,85,247,.4);color:#c084fc;font-weight:800;font-size:.9rem;padding:6px 18px;border-radius:50px;margin-bottom:10px;}
-.res-sec{background:var(--card2);border:1px solid var(--border);border-radius:13px;padding:14px 16px;margin-bottom:10px;}
+/* ── RESULT ── */
+.res-icon{width:72px;height:72px;margin:0 auto 14px;background:var(--grad);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 4px 20px rgba(230,50,50,.3);}
+.res-badge{display:inline-block;background:linear-gradient(135deg,#fff0f0,#fff5f5);border:2px solid var(--red);color:var(--red);font-weight:800;font-size:.88rem;padding:6px 18px;border-radius:50px;margin-bottom:10px;}
+.res-sec{background:#f8fafc;border:1px solid var(--border);border-radius:13px;padding:14px 16px;margin-bottom:10px;}
 .res-sec h4{font-size:.65rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:7px;}
-.res-sec p{font-size:.9rem;font-weight:600;line-height:1.5;}
+.res-sec p{font-size:.9rem;font-weight:600;line-height:1.5;color:var(--dark);}
 .res-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
-.tag{font-size:.7rem;font-weight:700;padding:3px 11px;border-radius:50px;background:rgba(6,182,212,.12);color:#67e8f9;border:1px solid rgba(6,182,212,.25);}
-.tag2{font-size:.7rem;font-weight:700;padding:3px 11px;border-radius:50px;background:rgba(244,114,182,.1);color:#f9a8d4;border:1px solid rgba(244,114,182,.25);}
+.tag{font-size:.7rem;font-weight:700;padding:3px 11px;border-radius:50px;background:#eff6ff;color:var(--blue);border:1px solid #bfdbfe;}
+.tag2{font-size:.7rem;font-weight:700;padding:3px 11px;border-radius:50px;background:#fdf4ff;color:var(--purple);border:1px solid #e9d5ff;}
 
-/* ── CTA WhatsApp (fitur #3) ── */
-.cta-block{margin-top:18px;background:linear-gradient(135deg,rgba(168,85,247,.08),rgba(6,182,212,.08));border:1px solid rgba(168,85,247,.28);border-radius:16px;padding:22px;text-align:center;}
-.cta-block h3{font-size:1rem;font-weight:800;margin-bottom:7px;}
-.cta-block p{font-size:.8rem;color:var(--muted);margin-bottom:14px;line-height:1.55;}
-.cta-wa{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;padding:13px 26px;border-radius:50px;font-weight:700;text-decoration:none;font-size:.88rem;box-shadow:0 4px 18px rgba(34,197,94,.3);transition:all .25s;}
-.cta-wa:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(34,197,94,.45);}
+/* ── CTA WA ── */
+.cta-block{
+  margin-top:18px;
+  background:linear-gradient(135deg,var(--dark),var(--dark2));
+  border-radius:16px;padding:22px;text-align:center;
+}
+.cta-block h3{font-size:1rem;font-weight:800;margin-bottom:7px;color:#fff;}
+.cta-block p{font-size:.8rem;color:#aaa;margin-bottom:14px;line-height:1.55;}
+.cta-wa{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;padding:13px 26px;border-radius:50px;font-weight:700;text-decoration:none;font-size:.88rem;box-shadow:0 4px 16px rgba(34,197,94,.35);transition:all .25s;}
+.cta-wa:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(34,197,94,.45);}
+
+/* ── INTRO HERO ── */
+.intro-hero{
+  background:linear-gradient(135deg,var(--dark),#2d1b4e);
+  border-radius:14px;padding:20px;margin-bottom:20px;
+  text-align:center;position:relative;overflow:hidden;
+}
+.intro-hero::before{content:'🌏';position:absolute;font-size:5rem;opacity:.06;right:-10px;top:-10px;}
+.intro-hero::after{content:'✈️';position:absolute;font-size:4rem;opacity:.06;left:-5px;bottom:-10px;}
+.intro-hero h3{font-size:1rem;font-weight:800;color:#fff;margin-bottom:4px;}
+.intro-hero p{font-size:.78rem;color:#aaa;}
+
+/* ── FEATURE CHIPS ── */
+.feat-chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0;}
+.fc{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:.75rem;font-weight:600;
+  padding:6px 12px;border-radius:50px;
+}
+.fc1{background:#fff0f0;color:var(--red);border:1px solid #fca5a5;}
+.fc2{background:#f0fdf4;color:var(--green);border:1px solid #86efac;}
+.fc3{background:#eff6ff;color:var(--blue);border:1px solid #93c5fd;}
+.fc4{background:#fdf4ff;color:var(--purple);border:1px solid #d8b4fe;}
 </style>
 </head>
 <body>
 
 <!-- HEADER -->
 <header>
-  <!-- Yuta Academy Logo (SVG) -->
-  <div style="display:flex;align-items:center;gap:4px;flex-shrink:0;">
-    <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="22" cy="22" r="22" fill="#1a1a1a"/>
-      <circle cx="22" cy="22" r="20" fill="#111"/>
-      <!-- Red sun/circle top -->
-      <circle cx="22" cy="10" r="6" fill="#e63232"/>
-      <circle cx="22" cy="10" r="3.5" fill="#ff6b6b"/>
-      <!-- Y letter -->
-      <text x="22" y="32" text-anchor="middle" font-family="Arial Black,sans-serif" font-weight="900" font-size="16" fill="white">Y</text>
-      <!-- Red underline -->
-      <rect x="10" y="37" width="24" height="2.5" rx="1.25" fill="#e63232"/>
+<div class="header-inner">
+  <div class="yuta-logo">
+    <!-- Yuta Academy Logo SVG -->
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="24" r="24" fill="#111"/>
+      <!-- Red sun top -->
+      <circle cx="24" cy="11" r="7" fill="#e63232"/>
+      <circle cx="24" cy="11" r="4" fill="#ff6b6b"/>
+      <circle cx="24" cy="11" r="2" fill="#fff"/>
+      <!-- Y text -->
+      <text x="24" y="35" text-anchor="middle" font-family="Arial Black,Impact,sans-serif" font-weight="900" font-size="17" fill="white" letter-spacing="-1">Y</text>
+      <!-- Red underline bar -->
+      <rect x="10" y="40" width="28" height="3" rx="1.5" fill="#e63232"/>
     </svg>
-    <div>
-      <div class="logo-name"><span>Yuta</span> Academy</div>
-      <div class="logo-sub">× LPIA Hotel &amp; Kapal Pesiar</div>
+    <div class="logo-texts">
+      <div class="logo-main">Yuta <span>Academy</span></div>
+      <div class="logo-academy">International Career</div>
     </div>
   </div>
-  <div class="hbadge">✈️ Career Survey</div>
+  <div class="logo-divider"></div>
+  <div class="logo-partner">
+    <strong>LPIA</strong><br/>Hotel &amp; Kapal Pesiar
+  </div>
+  <div class="hbadge">✈️ Survei Karir</div>
+</div>
 </header>
 
 <!-- PROGRESS BAR — Fitur #4 -->
 <div class="pbar-wrap"><div class="pbar-fill" id="pbar"></div></div>
-<div class="pbar-label" id="pbarLabel">Langkah 0 dari 6</div>
+<div class="pbar-info">
+  <span id="pbarLabel">Mulai survei</span>
+  <span id="pbarPct"></span>
+</div>
 
 <!-- DOTS -->
 <div class="dots">
@@ -182,16 +306,31 @@ select option{background:#1e1e35;color:#f1f5f9;}
 
 <!-- ══ INTRO ══ -->
 <div class="step active" id="step-0">
-  <div style="font-size:2.6rem;margin-bottom:10px;">🚀</div>
-  <div class="stag">Survei Minat Karir</div>
-  <h2>Kamu mau jadi apa<br/>setelah lulus? ✨</h2>
-  <p class="sub">Isi survei ini dan temukan jalur karirmu — hotel bintang 5, kapal pesiar internasional, atau bekerja di luar negeri!</p>
-  <div class="ib">
-    🌍 <span>Negara tujuan + estimasi gaji langsung muncul</span><br/>
-    🏨 <span>Bidang & program pelatihan Hotel/Kapal Pesiar</span><br/>
-    ⚡ <span>Profil karir personalmu tampil di akhir</span><br/>
-    ⏱️ <span>Hanya 5–8 menit · Data amanmu terjaga</span>
+  <div class="intro-hero">
+    <div style="font-size:2.2rem;margin-bottom:8px;">🚀</div>
+    <h3>Mau Kerja di Luar Negeri?</h3>
+    <p>Untuk siswa SMA/SMK & lulusan S1 — temukan jalur karir internasionalmu!</p>
   </div>
+
+  <div class="stag">Survei Minat Karir – SMA/SMK &amp; S1</div>
+  <h2>Halo! Apa rencanamu<br/>ke depan? ✨</h2>
+  <p class="sub">Untuk <strong>siswa SMA/SMK</strong> maupun <strong>lulusan S1</strong> — isi survei ini dan dapatkan profil karir personalmu!</p>
+
+  <div class="feat-chips">
+    <div class="fc fc1">🌍 Negara & Gaji Otomatis</div>
+    <div class="fc fc2">🏨 Hotel & Kapal Pesiar</div>
+    <div class="fc fc3">⚡ Profil Karir Langsung</div>
+    <div class="fc fc4">⏱️ Hanya 5–8 Menit</div>
+  </div>
+
+  <div class="ib">
+    ✅ &nbsp;<span>Rencana setelah lulus sekolah</span><br/>
+    ✅ &nbsp;<span>Negara tujuan + estimasi gaji muncul otomatis</span><br/>
+    ✅ &nbsp;<span>Bidang kerja Hotel & Kapal Pesiar</span><br/>
+    ✅ &nbsp;<span>Profil karir personalmu tampil di akhir</span>
+  </div>
+
+  <p style="font-size:.75rem;color:var(--muted);">🔒 Data kamu bersifat rahasia dan aman.</p>
   <div class="btn-row"><button class="btn btn-next" onclick="goNext(0)">Mulai Sekarang →</button></div>
 </div>
 
@@ -199,40 +338,102 @@ select option{background:#1e1e35;color:#f1f5f9;}
 <div class="step" id="step-1">
   <div class="stag">01 / 06 · Data Diri</div>
   <h2>Siapa kamu? 👋</h2>
-  <p class="sub">Biar kami bisa kenal kamu lebih dekat.</p>
+  <p class="sub">Ceritakan sedikit tentang dirimu.</p>
 
   <div class="fg">
     <label class="fl">Nama Lengkap <span class="req">*</span></label>
     <input type="text" id="q_nama" placeholder="Tulis nama lengkapmu..."/>
     <div class="err" id="err_nama">⚠️ Isi nama lengkapmu ya!</div>
   </div>
+
   <div class="fg">
-    <label class="fl">Asal Sekolah <span class="req">*</span></label>
-    <input type="text" id="q_sekolah" placeholder="Contoh: SMKN 2 Bandar Lampung"/>
-    <div class="err" id="err_sekolah">⚠️ Isi nama sekolahmu!</div>
-  </div>
-  <div class="fg">
-    <label class="fl">Kelas <span class="req">*</span></label>
-    <div class="rg" id="q_kelas">
-      <div class="ro" onclick="selR('q_kelas',this,'Kelas 10')"><div class="cr"></div><span>Kelas 10</span></div>
-      <div class="ro" onclick="selR('q_kelas',this,'Kelas 11')"><div class="cr"></div><span>Kelas 11</span></div>
-      <div class="ro" onclick="selR('q_kelas',this,'Kelas 12 – Calon Lulusan')"><div class="cr"></div><span>Kelas 12 – Calon Lulusan 🎓</span></div>
-      <div class="ro" onclick="selR('q_kelas',this,'Sudah Lulus')"><div class="cr"></div><span>Sudah Lulus</span></div>
+    <label class="fl">Tingkat Pendidikan <span class="req">*</span></label>
+    <div class="rg" id="q_pendidikan">
+      <div class="ro" onclick="selR('q_pendidikan',this,'SMA/SMK – Kelas 10');toggleEduFields('sma')"><div class="cr"></div><span>🏫 SMA/SMK – Kelas 10</span></div>
+      <div class="ro" onclick="selR('q_pendidikan',this,'SMA/SMK – Kelas 11');toggleEduFields('sma')"><div class="cr"></div><span>🏫 SMA/SMK – Kelas 11</span></div>
+      <div class="ro" onclick="selR('q_pendidikan',this,'SMA/SMK – Kelas 12 / Calon Lulus');toggleEduFields('sma')"><div class="cr"></div><span>🏫 SMA/SMK – Kelas 12 / Calon Lulus 🎓</span></div>
+      <div class="ro" onclick="selR('q_pendidikan',this,'Lulusan SMA/SMK');toggleEduFields('sma')"><div class="cr"></div><span>🎓 Lulusan SMA/SMK</span></div>
+      <div class="ro" onclick="selR('q_pendidikan',this,'Mahasiswa D3/D4');toggleEduFields('s1')"><div class="cr"></div><span>🎓 Mahasiswa D3/D4</span></div>
+      <div class="ro" onclick="selR('q_pendidikan',this,'Mahasiswa S1');toggleEduFields('s1')"><div class="cr"></div><span>🎓 Mahasiswa S1 (sedang kuliah)</span></div>
+      <div class="ro" onclick="selR('q_pendidikan',this,'Lulusan S1/Sarjana');toggleEduFields('s1')"><div class="cr"></div><span>🏆 Lulusan S1 / Sarjana</span></div>
+      <div class="ro" onclick="selR('q_pendidikan',this,'S2/Pascasarjana');toggleEduFields('s1')"><div class="cr"></div><span>🏆 S2 / Pascasarjana</span></div>
     </div>
-    <div class="err" id="err_kelas">⚠️ Pilih kelasmu!</div>
+    <div class="err" id="err_pendidikan">⚠️ Pilih tingkat pendidikanmu!</div>
   </div>
-  <div class="fg">
-    <label class="fl">Jurusan <span class="req">*</span></label>
-    <select id="q_jurusan">
-      <option value="">-- Pilih Jurusan --</option>
-      <option>IPA / MIPA</option><option>IPS</option><option>Bahasa</option>
-      <option>Teknik (SMK)</option><option>Bisnis &amp; Manajemen (SMK)</option>
-      <option>Pariwisata / Perhotelan (SMK)</option><option>Kesehatan (SMK)</option>
-      <option>Teknologi Informasi (SMK)</option><option>Pelayaran / Nautika (SMK)</option>
-      <option>Lainnya</option>
-    </select>
-    <div class="err" id="err_jurusan">⚠️ Pilih jurusanmu!</div>
+
+  <!-- Field SMA/SMK -->
+  <div id="block_sma" style="display:none;">
+    <div class="fg">
+      <label class="fl">Asal Sekolah <span class="req">*</span></label>
+      <input type="text" id="q_sekolah" placeholder="Contoh: SMKN 2 Bandar Lampung"/>
+      <div class="err" id="err_sekolah">⚠️ Isi nama sekolahmu!</div>
+    </div>
+    <div class="fg">
+      <label class="fl">Jurusan SMA/SMK <span class="req">*</span></label>
+      <select id="q_jurusan">
+        <option value="">-- Pilih Jurusan --</option>
+        <option>IPA / MIPA</option><option>IPS</option><option>Bahasa</option>
+        <option>Teknik (SMK)</option><option>Bisnis &amp; Manajemen (SMK)</option>
+        <option>Pariwisata / Perhotelan (SMK)</option><option>Kesehatan (SMK)</option>
+        <option>Teknologi Informasi (SMK)</option><option>Pelayaran / Nautika (SMK)</option>
+        <option>Lainnya</option>
+      </select>
+    </div>
   </div>
+
+  <!-- Field S1/Sarjana -->
+  <div id="block_s1" style="display:none;">
+    <div class="fg">
+      <label class="fl">Asal Perguruan Tinggi <span class="req">*</span></label>
+      <input type="text" id="q_kampus" placeholder="Contoh: Universitas Lampung"/>
+      <div class="err" id="err_kampus">⚠️ Isi nama perguruan tinggimu!</div>
+    </div>
+    <div class="fg">
+      <label class="fl">Jurusan / Program Studi <span class="req">*</span></label>
+      <select id="q_prodi">
+        <option value="">-- Pilih Program Studi --</option>
+        <optgroup label="Hospitality & Pariwisata">
+          <option>Pariwisata / Perhotelan</option>
+          <option>Manajemen Perhotelan</option>
+          <option>Culinary / Tata Boga</option>
+        </optgroup>
+        <optgroup label="Ekonomi & Bisnis">
+          <option>Manajemen</option>
+          <option>Akuntansi</option>
+          <option>Ekonomi / Bisnis Internasional</option>
+          <option>Marketing / Pemasaran</option>
+        </optgroup>
+        <optgroup label="Teknik & Teknologi">
+          <option>Teknik (semua bidang)</option>
+          <option>Teknologi Informasi / Ilmu Komputer</option>
+          <option>Teknik Perkapalan / Nautika</option>
+        </optgroup>
+        <optgroup label="Kesehatan & Sosial">
+          <option>Keperawatan / Kesehatan</option>
+          <option>Psikologi</option>
+          <option>Komunikasi / Hubungan Internasional</option>
+        </optgroup>
+        <optgroup label="Lainnya">
+          <option>Pertanian / Agribisnis</option>
+          <option>Hukum</option>
+          <option>FKIP / Pendidikan</option>
+          <option>Lainnya</option>
+        </optgroup>
+      </select>
+    </div>
+    <div class="fg">
+      <label class="fl">IPK Terakhir (opsional)</label>
+      <select id="q_ipk">
+        <option value="">-- Pilih rentang IPK --</option>
+        <option>Di bawah 2.75</option>
+        <option>2.75 – 3.00</option>
+        <option>3.00 – 3.50</option>
+        <option>3.50 – 3.75</option>
+        <option>Di atas 3.75</option>
+      </select>
+    </div>
+  </div>
+
   <div class="fg">
     <label class="fl">Jenis Kelamin</label>
     <div class="rg" id="q_gender">
@@ -283,7 +484,7 @@ select option{background:#1e1e35;color:#f1f5f9;}
 <div class="step" id="step-3">
   <div class="stag">03 / 06 · Negara Tujuan</div>
   <h2>Mau kerja di negara<br/>mana? 🌍</h2>
-  <p class="sub">Pilih negara impianmu — estimasi gaji <strong style="color:var(--a4)">langsung muncul</strong> di bawah!</p>
+  <p class="sub">Pilih negara impianmu — estimasi gaji <strong style="color:var(--orange)">langsung muncul!</strong></p>
   <div class="fg">
     <label class="fl">Negara tujuan <span class="req">*</span></label>
     <div class="rg" id="q_negara">
@@ -311,14 +512,11 @@ select option{background:#1e1e35;color:#f1f5f9;}
     </div>
     <div class="err" id="err_negara">⚠️ Pilih negara tujuanmu!</div>
   </div>
-
-  <!-- Salary badge muncul otomatis -->
   <div class="sal-badge" id="salBadge">
     <div class="sal-lbl">⚡ Estimasi Basic Salary</div>
     <div class="sal-val" id="salVal">–</div>
     <div class="sal-info" id="salInfo">per bulan (belum termasuk tunjangan &amp; lembur)</div>
   </div>
-
   <div class="btn-row">
     <button class="btn btn-back" onclick="goPrev(3)">←</button>
     <button class="btn btn-next" onclick="goNext(3)">Lanjut →</button>
@@ -330,28 +528,34 @@ select option{background:#1e1e35;color:#f1f5f9;}
   <div class="stag">04 / 06 · Bidang &amp; Program</div>
   <h2>Bidang apa yang<br/>kamu minati? 🏨🚢</h2>
   <p class="sub">Boleh pilih lebih dari satu!</p>
-
   <div class="fg">
     <label class="fl">Bidang pekerjaan <span class="req">*</span></label>
     <div class="cg" id="q_bidang">
+      <div style="font-size:.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin:4px 0 2px;">🏨 Hotel & Hospitality</div>
       <div class="co" onclick="togC(this,'q_bidang')"><div class="cc">✓</div><span>🍽️ Food &amp; Beverage / Waiter / Bartender</span></div>
       <div class="co" onclick="togC(this,'q_bidang')"><div class="cc">✓</div><span>🍳 Chef / Cook / Kitchen Crew</span></div>
       <div class="co" onclick="togC(this,'q_bidang')"><div class="cc">✓</div><span>🛏️ Housekeeping / Room Attendant</span></div>
       <div class="co" onclick="togC(this,'q_bidang')"><div class="cc">✓</div><span>🏨 Front Office / Resepsionis / Guest Service</span></div>
-      <div class="co" onclick="togC(this,'q_bidang')"><div class="cc">✓</div><span>🚢 Deck Officer / ABK Kapal Pesiar</span></div>
-      <div class="co" onclick="togC(this,'q_bidang')"><div class="cc">✓</div><span>⚙️ Engine / Teknik Kapal</span></div>
       <div class="co" onclick="togC(this,'q_bidang')"><div class="cc">✓</div><span>💆 Spa &amp; Wellness / Beauty Therapist</span></div>
       <div class="co" onclick="togC(this,'q_bidang')"><div class="cc">✓</div><span>🎭 Entertainment / Cruise Activities</span></div>
+      <div style="font-size:.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin:10px 0 2px;">🚢 Kapal Pesiar</div>
+      <div class="co" onclick="togC(this,'q_bidang')"><div class="cc">✓</div><span>🚢 Deck Officer / ABK Kapal Pesiar</span></div>
+      <div class="co" onclick="togC(this,'q_bidang')"><div class="cc">✓</div><span>⚙️ Engine / Teknik Kapal</span></div>
       <div class="co" onclick="togC(this,'q_bidang')"><div class="cc">✓</div><span>🧹 Laundry / Cleaning Service</span></div>
       <div class="co" onclick="togC(this,'q_bidang')"><div class="cc">✓</div><span>📊 Administrasi / Purser / Finance Ship</span></div>
+      <div style="font-size:.72rem;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin:10px 0 2px;">🎓 Khusus Lulusan S1</div>
+      <div class="co" onclick="togC(this,'q_bidang')"><div class="cc">✓</div><span>🏢 Hotel Management / Asst. Manager / Supervisor</span></div>
+      <div class="co" onclick="togC(this,'q_bidang')"><div class="cc">✓</div><span>📣 Sales &amp; Marketing Internasional</span></div>
+      <div class="co" onclick="togC(this,'q_bidang')"><div class="cc">✓</div><span>👥 Human Resources / Training</span></div>
+      <div class="co" onclick="togC(this,'q_bidang')"><div class="cc">✓</div><span>💰 Finance &amp; Accounting Hotel</span></div>
+      <div class="co" onclick="togC(this,'q_bidang')"><div class="cc">✓</div><span>🎪 Event Management / MICE</span></div>
+      <div class="co" onclick="togC(this,'q_bidang')"><div class="cc">✓</div><span>🌐 Tourism &amp; Destination Management</span></div>
     </div>
     <div class="err" id="err_bidang">⚠️ Pilih minimal satu bidang!</div>
   </div>
-
   <div class="div"></div>
-
   <div class="fg">
-    <label class="fl">Program pelatihan yang kamu minati <span style="font-weight:400;font-size:.7rem;">(opsional, boleh pilih lebih dari 1)</span></label>
+    <label class="fl">Program pelatihan yang diminati <span style="font-weight:400;font-size:.7rem;">(opsional)</span></label>
     <div class="cg" id="q_program">
       <div class="co" onclick="togC(this,'q_program')"><div class="cc">✓</div><span>🎓 Pelatihan Hospitality &amp; Hotel Internasional</span></div>
       <div class="co" onclick="togC(this,'q_program')"><div class="cc">✓</div><span>🚢 Pelatihan Kapal Pesiar (BST, SDSD, CCM, dll.)</span></div>
@@ -360,7 +564,6 @@ select option{background:#1e1e35;color:#f1f5f9;}
       <div class="co" onclick="togC(this,'q_program')"><div class="cc">✓</div><span>💼 Simulasi Kerja &amp; Interview Internasional</span></div>
     </div>
   </div>
-
   <div class="btn-row">
     <button class="btn btn-back" onclick="goPrev(4)">←</button>
     <button class="btn btn-next" onclick="goNext(4)">Lanjut →</button>
@@ -370,11 +573,10 @@ select option{background:#1e1e35;color:#f1f5f9;}
 <!-- ══ STEP 5: GAJI & MOTIVASI ══ -->
 <div class="step" id="step-5">
   <div class="stag">05 / 06 · Ekspektasi &amp; Motivasi</div>
-  <h2>Berapa target gajimu<br/>&amp; apa motivasimu? 💰</h2>
+  <h2>Target gaji &amp;<br/>motivasimu? 💰</h2>
   <p class="sub">Jujur aja, gak ada jawaban yang salah!</p>
-
   <div class="fg">
-    <label class="fl">Ekspektasi gaji di <strong style="color:var(--text)">Indonesia</strong> (per bulan) <span class="req">*</span></label>
+    <label class="fl">Target gaji di <strong>Indonesia</strong> (per bulan) <span class="req">*</span></label>
     <div class="rg g2" id="q_gaji_dn">
       <div class="ro" onclick="selR('q_gaji_dn',this,'< Rp 3 juta')"><div class="cr"></div><span>&lt; Rp 3 juta</span></div>
       <div class="ro" onclick="selR('q_gaji_dn',this,'Rp 3–5 juta')"><div class="cr"></div><span>Rp 3–5 juta</span></div>
@@ -385,9 +587,8 @@ select option{background:#1e1e35;color:#f1f5f9;}
     </div>
     <div class="err" id="err_gaji_dn">⚠️ Pilih ekspektasi gajimu!</div>
   </div>
-
   <div class="fg">
-    <label class="fl">Ekspektasi gaji di <strong style="color:var(--text)">Luar Negeri</strong> (per bulan) <span class="req">*</span></label>
+    <label class="fl">Target gaji di <strong>Luar Negeri</strong> (per bulan) <span class="req">*</span></label>
     <div class="rg g2" id="q_gaji_ln">
       <div class="ro" onclick="selR('q_gaji_ln',this,'< Rp 10 juta')"><div class="cr"></div><span>&lt; Rp 10 juta</span></div>
       <div class="ro" onclick="selR('q_gaji_ln',this,'Rp 10–20 juta')"><div class="cr"></div><span>Rp 10–20 juta</span></div>
@@ -398,9 +599,8 @@ select option{background:#1e1e35;color:#f1f5f9;}
     </div>
     <div class="err" id="err_gaji_ln">⚠️ Pilih ekspektasi gajimu!</div>
   </div>
-
   <div class="fg">
-    <label class="fl">Motivasi utamamu <span style="font-weight:400;font-size:.7rem;">(boleh pilih lebih dari 1)</span></label>
+    <label class="fl">Motivasi utamamu <span style="font-weight:400;font-size:.7rem;">(boleh lebih dari 1)</span></label>
     <div class="cg" id="q_motivasi">
       <div class="co" onclick="togC(this,'q_motivasi')"><div class="cc">✓</div><span>💰 Gaji lebih besar &amp; hidup makmur</span></div>
       <div class="co" onclick="togC(this,'q_motivasi')"><div class="cc">✓</div><span>🌱 Pengembangan diri &amp; pengalaman internasional</span></div>
@@ -409,9 +609,8 @@ select option{background:#1e1e35;color:#f1f5f9;}
       <div class="co" onclick="togC(this,'q_motivasi')"><div class="cc">✓</div><span>🌐 Networking &amp; karir global jangka panjang</span></div>
     </div>
   </div>
-
   <div class="fg">
-    <label class="fl">Kendala terbesar saat ini <span style="font-weight:400;font-size:.7rem;">(boleh pilih lebih dari 1)</span></label>
+    <label class="fl">Kendala terbesarmu <span style="font-weight:400;font-size:.7rem;">(boleh lebih dari 1)</span></label>
     <div class="cg" id="q_kendala">
       <div class="co" onclick="togC(this,'q_kendala')"><div class="cc">✓</div><span>💸 Biaya / finansial masih kurang</span></div>
       <div class="co" onclick="togC(this,'q_kendala')"><div class="cc">✓</div><span>🗣️ Kemampuan bahasa asing masih lemah</span></div>
@@ -421,7 +620,6 @@ select option{background:#1e1e35;color:#f1f5f9;}
       <div class="co" onclick="togC(this,'q_kendala')"><div class="cc">✓</div><span>📝 Tidak tahu prosedur dokumen &amp; visa</span></div>
     </div>
   </div>
-
   <div class="fg">
     <label class="fl">Kapan rencanamu berangkat? <span class="req">*</span></label>
     <div class="rg" id="q_waktu">
@@ -432,7 +630,6 @@ select option{background:#1e1e35;color:#f1f5f9;}
     </div>
     <div class="err" id="err_waktu">⚠️ Pilih estimasi waktumu!</div>
   </div>
-
   <div class="btn-row">
     <button class="btn btn-back" onclick="goPrev(5)">←</button>
     <button class="btn btn-next" onclick="goNext(5)">Lanjut →</button>
@@ -443,14 +640,12 @@ select option{background:#1e1e35;color:#f1f5f9;}
 <div class="step" id="step-6">
   <div class="stag">06 / 06 · Kontak</div>
   <h2>Hampir selesai! 🎉</h2>
-  <p class="sub">Tinggal satu langkah — isi kontakmu biar tim Yuta Academy bisa langsung reach out ke kamu!</p>
-
+  <p class="sub">Isi kontakmu — tim Yuta Academy akan langsung menghubungimu!</p>
   <div class="fg">
     <label class="fl">Nomor WhatsApp Aktif <span class="req">*</span></label>
     <input type="text" id="q_wa" placeholder="Contoh: 08123456789"/>
     <div class="err" id="err_wa">⚠️ Isi nomor WA yang aktif ya!</div>
   </div>
-
   <div class="fg">
     <label class="fl">Sudah kenal Yuta Academy? <span class="req">*</span></label>
     <div class="rg" id="q_kenal">
@@ -460,9 +655,8 @@ select option{background:#1e1e35;color:#f1f5f9;}
     </div>
     <div class="err" id="err_kenal">⚠️ Pilih salah satu!</div>
   </div>
-
   <div class="fg">
-    <label class="fl">Dapat info survei ini dari mana?</label>
+    <label class="fl">Dapat info survei dari mana?</label>
     <div class="rg" id="q_sumber">
       <div class="ro" onclick="selR('q_sumber',this,'Guru/Sekolah')"><div class="cr"></div><span>🏫 Guru / Sekolah</span></div>
       <div class="ro" onclick="selR('q_sumber',this,'Teman')"><div class="cr"></div><span>👥 Teman</span></div>
@@ -471,36 +665,26 @@ select option{background:#1e1e35;color:#f1f5f9;}
       <div class="ro" onclick="selR('q_sumber',this,'Lainnya')"><div class="cr"></div><span>🔍 Lainnya</span></div>
     </div>
   </div>
-
   <div class="fg">
-    <label class="fl">Ada yang mau ditanyakan? (opsional)</label>
-    <textarea id="q_pesan" rows="3" placeholder="Tulis pertanyaan atau pesanmu di sini..."></textarea>
+    <label class="fl">Ada pertanyaan? (opsional)</label>
+    <textarea id="q_pesan" rows="3" placeholder="Tulis di sini..."></textarea>
   </div>
-
   <div class="btn-row">
     <button class="btn btn-back" onclick="goPrev(6)">←</button>
     <button class="btn btn-next" onclick="submitSurvey()">Lihat Profil Karirku 🚀</button>
   </div>
 </div>
 
-<!-- ══ RESULT — Fitur #2: Profil Siswa ══ -->
+<!-- ══ RESULT — Profil Siswa (Fitur #2) ══ -->
 <div class="step" id="step-result">
-  <div style="text-align:center;margin-bottom:22px;">
+  <div style="text-align:center;margin-bottom:20px;">
     <div class="res-icon">🎯</div>
-    <!-- Badge profil "Calon Pahlawan Devisa" dst -->
     <div class="res-badge" id="res_badge">Profil Karir</div>
-    <h2 id="res_nama" style="margin-top:10px;font-size:1.15rem;"></h2>
+    <h2 id="res_nama" style="margin-top:10px;font-size:1.15rem;color:var(--dark);"></h2>
     <p style="font-size:.8rem;color:var(--muted);margin-top:4px;">Survei selesai! Ini ringkasan profil karirmu 👇</p>
   </div>
-
-  <div class="res-sec">
-    <h4>Rencana Setelah Lulus</h4>
-    <p id="res_rencana">–</p>
-  </div>
-  <div class="res-sec">
-    <h4>Negara Tujuan &amp; Estimasi Gaji</h4>
-    <p id="res_negara">–</p>
-  </div>
+  <div class="res-sec"><h4>Rencana Setelah Lulus</h4><p id="res_rencana">–</p></div>
+  <div class="res-sec"><h4>Negara Tujuan &amp; Estimasi Gaji</h4><p id="res_negara">–</p></div>
   <div class="res-sec">
     <h4>Bidang Pekerjaan</h4>
     <div class="res-tags" id="res_bidang"></div>
@@ -509,83 +693,80 @@ select option{background:#1e1e35;color:#f1f5f9;}
     <h4>Program Pelatihan Minat</h4>
     <div class="res-tags" id="res_program"></div>
   </div>
-  <div class="res-sec">
-    <h4>Ekspektasi Gaji</h4>
-    <p id="res_gaji">–</p>
-  </div>
-  <div class="res-sec">
-    <h4>Timeline Keberangkatan</h4>
-    <p id="res_waktu">–</p>
-  </div>
-  <div class="res-sec">
-    <h4>Kendala Utama</h4>
-    <p id="res_kendala" style="color:var(--muted);font-size:.83rem;">–</p>
-  </div>
+  <div class="res-sec"><h4>Ekspektasi Gaji</h4><p id="res_gaji">–</p></div>
+  <div class="res-sec"><h4>Timeline Keberangkatan</h4><p id="res_waktu">–</p></div>
+  <div class="res-sec"><h4>Kendala Utama</h4><p id="res_kendala" style="color:var(--muted);font-size:.84rem;">–</p></div>
 
-  <!-- CTA WhatsApp — Fitur #3 -->
+  <!-- CTA WhatsApp (Fitur #3) -->
   <div class="cta-block">
     <h3>Siap wujudkan karir internasionalmu? 🌍</h3>
-    <p>Tim Yuta Academy × LPIA siap bantu kamu step by step — dari pelatihan, dokumen, hingga penempatan kerja. Kami akan segera menghubungimu!</p>
+    <p>Tim Yuta Academy × LPIA siap bantu kamu dari pelatihan, dokumen, hingga penempatan kerja di luar negeri!</p>
     <a class="cta-wa" href="https://wa.me/628218222271" target="_blank">
       <span style="font-size:1.1rem;">💬</span> Chat WhatsApp Sekarang
     </a>
-    <p style="font-size:.72rem;color:var(--muted);margin-top:12px;margin-bottom:0;">0821-8222-271 &nbsp;·&nbsp; yuta.lpk@gmail.com</p>
+    <p style="font-size:.72rem;color:#888;margin-top:12px;margin-bottom:0;">
+      📞 0821-8222-271 &nbsp;·&nbsp; 📧 yuta.lpk@gmail.com
+    </p>
   </div>
-
-  <p style="text-align:center;font-size:.7rem;color:var(--muted);margin-top:18px;">
+  <p style="text-align:center;font-size:.7rem;color:var(--muted);margin-top:16px;">
     Yuta Academy × LPIA Hotel &amp; Kapal Pesiar · Bandar Lampung
   </p>
 </div>
 
-</div></div><!-- card / container -->
+</div></div>
 
 <script>
 const A={};
 const SAL={
-  'Jepang':  {v:'Rp 20.000.000 / bulan', i:'Basic Salary ~¥120.000 · Hotel & Hospitality Jepang'},
-  'Turki':   {v:'Rp 35.000.000 / bulan', i:'Basic Salary ~$750 · Hotel Full Season Turki'},
-  'Kroasia': {v:'Rp 35.000.000 / bulan', i:'Basic Salary ~€700 · Hotel & Resort Kroasia'},
-  'Slovakia':{v:'Rp 58.000.000 / bulan', i:'Basic Salary ~€900 · Penempatan Hotel Slovakia'},
-  'Australia':{v:'Rp 85.000.000 / bulan',i:'Basic Salary ~$3.300–3.900 AUD · Hotel & Hospitality Australia'},
+  'Jepang':  {v:'Rp 20.000.000 / bulan',i:'Basic Salary ~¥120.000 · Hotel & Hospitality Jepang'},
+  'Turki':   {v:'Rp 35.000.000 / bulan',i:'Basic Salary ~$750 · Hotel Full Season Turki'},
+  'Kroasia': {v:'Rp 35.000.000 / bulan',i:'Basic Salary ~€700 · Hotel & Resort Kroasia'},
+  'Slovakia':{v:'Rp 58.000.000 / bulan',i:'Basic Salary ~€900 · Penempatan Hotel Slovakia'},
+  'Australia':{v:'Rp 85.000.000 / bulan',i:'Basic Salary ~$3.300–3.900 AUD · Hotel Australia'},
 };
 
-// ── Interaksi ──
 function selR(g,el,v){
   document.querySelectorAll('#'+g+' .ro').forEach(o=>o.classList.remove('sel'));
-  el.classList.add('sel'); A[g]=v;
-  const e=document.getElementById('err_'+g); if(e)e.style.display='none';
+  el.classList.add('sel');A[g]=v;
+  const e=document.getElementById('err_'+g);if(e)e.style.display='none';
 }
 function selS(g,el,v){
   document.querySelectorAll('#'+g+' .sb').forEach(b=>b.classList.remove('sel'));
-  el.classList.add('sel'); A[g]=v;
+  el.classList.add('sel');A[g]=v;
 }
 function togC(el,g){
   el.classList.toggle('sel');
   A[g]=Array.from(document.querySelectorAll('#'+g+' .co.sel')).map(o=>o.querySelector('span').textContent.trim());
-  const e=document.getElementById('err_'+g); if(e&&A[g].length>0)e.style.display='none';
+  const e=document.getElementById('err_'+g);if(e&&A[g].length>0)e.style.display='none';
 }
-function showSal(country){
+function showSal(c){
   const b=document.getElementById('salBadge');
-  if(!country||!SAL[country]){b.classList.remove('show');return;}
-  document.getElementById('salVal').textContent=SAL[country].v;
-  document.getElementById('salInfo').textContent=SAL[country].i;
+  if(!c||!SAL[c]){b.classList.remove('show');return;}
+  document.getElementById('salVal').textContent=SAL[c].v;
+  document.getElementById('salInfo').textContent=SAL[c].i;
   b.classList.add('show');
 }
-
-// ── Validasi otomatis tiap langkah — Fitur #1 ──
 function showErr(id){const e=document.getElementById(id);if(e)e.style.display='block';}
 function hideErr(id){const e=document.getElementById(id);if(e)e.style.display='none';}
 
+/* Validasi otomatis tiap langkah — Fitur #1 */
 function validate(s){
   let ok=true;
   if(s===1){
     const n=document.getElementById('q_nama').value.trim();
     if(!n){showErr('err_nama');ok=false;}else{hideErr('err_nama');A.q_nama=n;}
-    const sc=document.getElementById('q_sekolah').value.trim();
-    if(!sc){showErr('err_sekolah');ok=false;}else{hideErr('err_sekolah');A.q_sekolah=sc;}
-    if(!A.q_kelas){showErr('err_kelas');ok=false;}
-    const j=document.getElementById('q_jurusan').value;
-    if(!j){showErr('err_jurusan');ok=false;}else{hideErr('err_jurusan');A.q_jurusan=j;}
+    if(!A.q_pendidikan){showErr('err_pendidikan');ok=false;}
+    // SMA/SMK validation
+    const isSMA=A.q_pendidikan&&(A.q_pendidikan.includes('SMA')||A.q_pendidikan.includes('Lulusan SMA'));
+    const isS1=A.q_pendidikan&&!isSMA;
+    if(isSMA){
+      const sc=document.getElementById('q_sekolah').value.trim();
+      if(!sc){showErr('err_sekolah');ok=false;}else{hideErr('err_sekolah');A.q_sekolah=sc;}
+    }
+    if(isS1){
+      const kp=document.getElementById('q_kampus').value.trim();
+      if(!kp){showErr('err_kampus');ok=false;}else{hideErr('err_kampus');A.q_kampus=kp;}
+    }
   }
   if(s===2&&!A.q_rencana){showErr('err_rencana');ok=false;}
   if(s===3&&!A.q_negara){showErr('err_negara');ok=false;}
@@ -604,16 +785,23 @@ function validate(s){
   return ok;
 }
 
-// ── Progress bar + dots — Fitur #4 ──
+function toggleEduFields(type){
+  document.getElementById('block_sma').style.display=type==='sma'?'block':'none';
+  document.getElementById('block_s1').style.display=type==='s1'?'block':'none';
+  hideErr('err_pendidikan');
+}
+
+/* Progress bar & dots — Fitur #4 */
 function updateUI(step){
   const pct=step===0?0:Math.round(step/6*100);
-  document.getElementById('pbar').style.width=pct+'%';
+  document.getElementById('pbar').style.width=(step===7?100:pct)+'%';
   document.getElementById('pbarLabel').textContent=
-    step===0?'Langkah 0 dari 6':
-    step===7?'Selesai! ✅':
-    'Langkah '+step+' dari 6 ('+pct+'%)';
+    step===0?'Langkah Intro':
+    step===7?'✅ Selesai!':
+    'Langkah '+step+' dari 6';
+  document.getElementById('pbarPct').textContent=step===0?'':(step===7?'100%':pct+'%');
   for(let i=0;i<=6;i++){
-    const d=document.getElementById('d'+i); if(!d)continue;
+    const d=document.getElementById('d'+i);if(!d)continue;
     d.className='dot';
     if(i<step)d.classList.add('done');
     else if(i===step)d.classList.add('active');
@@ -630,29 +818,79 @@ function showStep(n){
 function goNext(c){if(!validate(c))return;showStep(c+1);}
 function goPrev(c){showStep(c-1);}
 
-// ── Badge profil siswa — Fitur #2 ──
+/* Badge profil siswa — Fitur #2 */
 function getBadge(){
-  const neg=A.q_negara||'';
-  const ren=A.q_rencana||'';
-  if(neg==='Jepang')   return '🇯🇵 Calon Pahlawan Devisa – Jalur Jepang';
-  if(neg==='Turki')    return '🇹🇷 Calon Pahlawan Devisa – Jalur Turki';
-  if(neg==='Kroasia')  return '🇭🇷 Calon Pahlawan Devisa – Jalur Kroasia';
-  if(neg==='Slovakia') return '🇸🇰 Calon Pahlawan Devisa – Jalur Slovakia';
-  if(neg==='Australia')return '🇦🇺 Calon Pahlawan Devisa – Jalur Australia';
+  const neg=A.q_negara||'';const ren=A.q_rencana||'';
+  const pend=A.q_pendidikan||'';
+  const isS1=pend.includes('S1')||pend.includes('D3')||pend.includes('D4')||pend.includes('Mahasiswa')||pend.includes('S2');
+  if(neg==='Jepang')    return isS1?'🇯🇵 Sarjana Berkarir – Jalur Jepang':'🇯🇵 Calon Pahlawan Devisa – Jalur Jepang';
+  if(neg==='Turki')     return isS1?'🇹🇷 Sarjana Berkarir – Jalur Turki':'🇹🇷 Calon Pahlawan Devisa – Jalur Turki';
+  if(neg==='Kroasia')   return isS1?'🇭🇷 Sarjana Berkarir – Jalur Kroasia':'🇭🇷 Calon Pahlawan Devisa – Jalur Kroasia';
+  if(neg==='Slovakia')  return isS1?'🇸🇰 Sarjana Berkarir – Jalur Slovakia':'🇸🇰 Calon Pahlawan Devisa – Jalur Slovakia';
+  if(neg==='Australia') return isS1?'🇦🇺 Sarjana Berkarir – Jalur Australia':'🇦🇺 Calon Pahlawan Devisa – Jalur Australia';
   if(ren.includes('Kuliah di Luar')) return '🎓 Calon Mahasiswa Internasional';
+  if(isS1&&ren.includes('Luar Negeri')) return '🏆 Profesional Muda Internasional';
   if(ren.includes('Kuliah di Indonesia')) return '🎓 Calon Mahasiswa Berprestasi';
-  if(ren.includes('Bekerja di Indonesia')) return '🏢 Calon Profesional Muda';
-  return '🌟 Calon Pemimpin Masa Depan';
+  if(ren.includes('Bekerja di Indonesia')) return isS1?'🏢 Sarjana Profesional Muda':'🏢 Calon Profesional Muda';
+  return isS1?'🌟 Sarjana Siap Berkarir Global':'🌟 Calon Pemimpin Masa Depan';
 }
 
 function makeTags(arr,id,cls){
-  const w=document.getElementById(id); w.innerHTML='';
-  (arr||[]).forEach(b=>{const t=document.createElement('span');t.className=cls||'tag';t.textContent=b;w.appendChild(t);});
+  const w=document.getElementById(id);w.innerHTML='';
+  (arr||[]).forEach(b=>{const t=document.createElement('span');t.className=cls;t.textContent=b;w.appendChild(t);});
 }
 
-// ── Submit & render hasil ──
 function submitSurvey(){
   if(!validate(6))return;
+
+  // Tampilkan loading
+  const btn=document.querySelector('#step-6 .btn-next');
+  btn.textContent='⏳ Mengirim...';
+  btn.disabled=true;
+
+  // Kumpulkan semua data
+  const payload={
+    nama: A.q_nama||'',
+    pendidikan: A.q_pendidikan||'',
+    sekolah_kampus: A.q_sekolah||A.q_kampus||'',
+    jurusan_prodi: (document.getElementById('q_jurusan')&&document.getElementById('q_jurusan').value)||
+                   (document.getElementById('q_prodi')&&document.getElementById('q_prodi').value)||'',
+    ipk: (document.getElementById('q_ipk')&&document.getElementById('q_ipk').value)||'',
+    gender: A.q_gender||'',
+    rencana: A.q_rencana||'',
+    keyakinan: A.q_yakin||'',
+    negara: A.q_negara||'',
+    bidang: A.q_bidang||[],
+    program: A.q_program||[],
+    gaji_dn: A.q_gaji_dn||'',
+    gaji_ln: A.q_gaji_ln||'',
+    motivasi: A.q_motivasi||[],
+    kendala: A.q_kendala||[],
+    waktu: A.q_waktu||'',
+    wa: A.q_wa||'',
+    kenal: A.q_kenal||'',
+    sumber: A.q_sumber||'',
+    pesan: A.q_pesan||''
+  };
+
+  // Kirim ke Google Sheets
+  fetch('https://script.google.com/macros/s/AKfycbw60xkXyBWz2BV-HCP9JKEjBB9186ju-GzK4oC7KbQ1lX2jBy1bCZGhigswo-npf5kl/exec', {
+    method:'POST',
+    mode:'no-cors',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify(payload)
+  })
+  .then(()=>{
+    // Tampilkan hasil profil
+    renderResult();
+  })
+  .catch(()=>{
+    // Tetap tampilkan hasil meski ada error jaringan
+    renderResult();
+  });
+}
+
+function renderResult(){
   document.getElementById('res_badge').textContent=getBadge();
   document.getElementById('res_nama').textContent='Hai, '+(A.q_nama||'')+'! 👋';
   document.getElementById('res_rencana').textContent=A.q_rencana||'–';
@@ -660,13 +898,12 @@ function submitSurvey(){
   const sal=SAL[neg]?'  ·  '+SAL[neg].v:'';
   document.getElementById('res_negara').textContent='🌍 '+neg+sal;
   makeTags(A.q_bidang,'res_bidang','tag');
-  makeTags(A.q_program,'res_program','tag2');
+  makeTags(A.q_program||[],'res_program','tag2');
   document.getElementById('res_gaji').textContent='LN: '+(A.q_gaji_ln||'–')+'  ·  DN: '+(A.q_gaji_dn||'–');
   document.getElementById('res_waktu').textContent=A.q_waktu||'–';
   const k=A.q_kendala;
   document.getElementById('res_kendala').textContent=k&&k.length?k.join(' · '):'Tidak disebutkan';
   showStep('result');
-  document.getElementById('pbar').style.width='100%';
 }
 
 updateUI(0);
